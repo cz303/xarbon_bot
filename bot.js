@@ -399,7 +399,7 @@ api.onText(/\/Refer/, function(msg, match) {
 		telegramId: fromId
 	},{
 		$set: {
-			btcAddress: nem
+			btcAddress: btc
 		}
 	},{
 		returnOriginal: false
