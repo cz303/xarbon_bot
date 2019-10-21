@@ -1,1 +1,1 @@
-worker: python bot.py $PORT
+worker: node bot.js $PORT
