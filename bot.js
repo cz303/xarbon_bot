@@ -135,7 +135,7 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 	var fromId = msg.from.id;
 
 	api.sendMessage(fromId,
-		"Like us on Facebook https://www.vk.com/bitpif/ \n\n" +
+		"Like us on VK https://www.vk.com/bitpif/ \n\n" +
 		"Send a screenshot showing you’ve followed our VK page.",
 		{
 			parse_mode: 'html'
@@ -390,16 +390,16 @@ api.onText(/\/Refer/, function(msg, match) {
 
   });
 
-  //upnemaddress
-  api.onText(/\/upnemaddress (.+)/, function(msg, match) {
-  	var nem = match[1];
+  //upbtcaddress
+  api.onText(/\/upbtcaddress (.+)/, function(msg, match) {
+  	var btc = match[1];
 	var fromId = msg.from.id;
 
 	db.collection('bitpif_users').findOneAndUpdate({
 		telegramId: fromId
 	},{
 		$set: {
-			nemAddress: nem
+			btcAddress: nem
 		}
 	},{
 		returnOriginal: false
