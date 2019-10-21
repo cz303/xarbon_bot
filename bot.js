@@ -178,19 +178,19 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 	});
 
   //REFER
-  api.onText(/\/Refer/, function(msg, match) {
+def partners(user, bot_username, user_invited_by=None):
+    partners_info = ''
+    if user_invited_by:
+        partners_info = f'Вы были приглашены пользователем: {user_invited_by}\n'
+    referral_link = f'https://telegram.me/{bot_username}?start={str(user.chat_id)}'
+    partners_info += f'Ваша реферальная ссылка: {referral_link}\n'
 
-	var fromId = msg.from.id;
+    level_percentage = tariffs.get_referral_levels_percentage()
 
-	api.sendMessage(fromId,
-		"Bonus round! This is optional but worth a shot! Earn up to 50 OCO tokens by adding up to 10 of your friends into @XarcadeOCO / https://t.me/XarbonOCO Telegram group. Each successfully referred member will earn you 5 OCO tokens.  \n\n" +
-		"There will be checks done to ensure the added members are real accounts. If not, your entire token earnings will be forfeited. \n\n" +
-		"Finally, update your information by clicking /Profile. Without this information, we will not be able to distribute your airdrops.",
-		{
-			parse_mode: 'html'
-		}
-		);
-	});
+    for idx, percentage in enumerate(level_percentage):
+        partners_info += f'Уровень {idx + 1} - {percentage * 100 * user.deposit_reward}% в день\n'
+
+    return partners_info
 
 	// Profile
   api.onText(/\/Profile/, function(msg, match) {
