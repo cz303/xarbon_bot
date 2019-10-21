@@ -46,9 +46,9 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 			    lastName: lname,
 			    email: '',
 			    twitterUsn: '',
-			    nemAddress: '',
-			    fblike: '',
-			    lilike:'',
+			    btcAddress: '',
+			    vklike: '',
+			    instlike:'',
 			    added: 0,
 			    addedPerson: []
 			  },(err, result) => {
@@ -74,11 +74,11 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 	    keyboard: [
 	      [
 	        {text: '\u{1F426}' + ' 1. /Telegram'},
-	        {text: '\u{1F4F1}' + ' 2. /Facebook'},
+	        {text: '\u{1F4F1}' + ' 2. /VK'},
 	      ],
 	      [
 	      	{text: '\u{1F64B}' + ' 3. /Twitter'},
-	        {text: '\u{1F4DD}' + ' 4. /LinkedIn'}
+	        {text: '\u{1F4DD}' + ' 4. /Instagram'}
 	      ],
 	      [
 	      	{text: '\u{1F3C6}' + '5. /Refer'},
@@ -92,9 +92,9 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 	api.sendMessage(fromId, `Hi ${fname}, welcome to the BITPIF Airdrop bot!  \n\n` +
 		`\u{1F4E3} A total of 100 BPIF tokens could be yours! \n\n` +
 		`\u{1F537} 8 BPIF tokens for joining our Telegram group \n` +
-		`\u{1F537} 8 BPIF tokens for liking our Facebook page \n` +
+		`\u{1F537} 8 BPIF tokens for liking our VK page \n` +
 		`\u{1F537} 8 BPIF tokens for following our Twitter \n` +
-		`\u{1F537} 16 BPIF tokens for following our LinkedIn page \n` +
+		`\u{1F537} 16 BPIF tokens for following our Instagram page \n` +
 		`\u{1F537} 10 BPIF tokens for doing all of the above \n` +
 		`\u{1F537} 50 BPIF tokens for referring 10 members into our Telegram group \n\n` +
 		`To start earning BPIF tokens, please press /Telegram.`
@@ -122,7 +122,7 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 	var fromId = msg.from.id;
 
 	api.sendMessage(fromId,
-		"Thank you for joining our Telegram group! Please press /Facebook to proceed. \n\n",
+		"Thank you for joining our Telegram group! Please press /VK to proceed. \n\n",
 		{
 			parse_mode: 'html'
 		}
@@ -246,7 +246,7 @@ api.onText(/\/Refer/, function(msg, match) {
 						console.log(result);
 						
 					},(err) => {
-						console.log('unable to update VKlike');
+						console.log('unable to update vklike');
 					});
 					api.sendMessage(fromId,"VK screenshot has been received! Please press /Twitter to proceed."
 						
