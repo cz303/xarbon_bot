@@ -5,7 +5,7 @@ const express = require('express');
 
 const port = process.env.PORT || 3000;
 
-var token ='671240097:AAEv4vZ3ZB7wJzJSVJkAiTDxcvgUpXDGtn8';
+var token ='659414060:AAEWNZpJCVULIOoAdEP7oz8ZGoKJFfmW670';
 var api = new telegramBot(token, {polling: true});
 var app = express();
 
