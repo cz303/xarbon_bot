@@ -1,7 +1,7 @@
 var telegramBot = require('node-telegram-bot-api');
 var mysql = require('mysql');
 const fs = require('fs');
-var token ='544165360:AAEJCPDJABhG70bPCIEQ1NX5hOLoWpmQP4Q';
+var token ='659414060:AAEWNZpJCVULIOoAdEP7oz8ZGoKJFfmW670';
 var api = new telegramBot(token, {polling: true});
 
 
