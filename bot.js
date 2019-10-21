@@ -14,7 +14,7 @@ MongoClient.connect('mongodb://<dbuser>:<dbpassword>@ds237588.mlab.com:37588/her
     return console.log('Unable to connect to MongoDB server');
   }
   console.log('Connected to MongoDB server');
-  const db = client.db('heroku_v6frk9p0');
+  const db = client.db('heroku_9wjl0rfc');
 
 	//START
   api.onText(/\/start/, function(msg, match) {
