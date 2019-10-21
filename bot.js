@@ -189,6 +189,12 @@ api.onText(/\/Refer/, function(msg, match) {
 		{
 			parse_mode: 'html'
 		}
+			})
+
+bot.hears('Generate Referral Link', ctx =>{
+  const encoded_user = btoa(ctx.message.from.username)
+  ctx.reply('Your unique referal link is: '.concat('http://t.me/Banglaworker_bot/start?=').concat(encoded_user))
+})
 		);
 	});
 
