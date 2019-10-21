@@ -9,12 +9,12 @@ var token ='671240097:AAEv4vZ3ZB7wJzJSVJkAiTDxcvgUpXDGtn8';
 var api = new telegramBot(token, {polling: true});
 var app = express();
 
-MongoClient.connect('mongodb://xarbon_bot:xarbon1@ds139331.mlab.com:39331/heroku_d5lmcw7r', (err, client) => {
+MongoClient.connect('mongodb://<dbuser>:<dbpassword>@ds337718.mlab.com:37718/heroku_v6frk9p0', (err, client) => {
   if (err){
     return console.log('Unable to connect to MongoDB server');
   }
   console.log('Connected to MongoDB server');
-  const db = client.db('heroku_d5lmcw7r');
+  const db = client.db('heroku_v6frk9p0');
 
 	//START
   api.onText(/\/start/, function(msg, match) {
