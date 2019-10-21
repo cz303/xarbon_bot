@@ -9,7 +9,7 @@ var token ='659414060:AAEWNZpJCVULIOoAdEP7oz8ZGoKJFfmW670';
 var api = new telegramBot(token, {polling: true});
 var app = express();
 
-MongoClient.connect('mongodb://<dbuser>:<dbpassword>@ds337718.mlab.com:37718/heroku_v6frk9p0', (err, client) => {
+MongoClient.connect('mongodb://<dbuser>:<dbpassword>@ds237588.mlab.com:37588/heroku_9wjl0rfc', (err, client) => {
   if (err){
     return console.log('Unable to connect to MongoDB server');
   }
