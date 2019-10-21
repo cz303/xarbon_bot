@@ -185,7 +185,7 @@ api.onText(/\/Refer/, function(msg, match) {
 	api.sendMessage(fromId,
 		"Bonus round! This is optional but worth a shot!  Earn up to 50 BPIF tokens by adding up to 10 of your friends into @bitpif / https://t.me/bitpif Telegram group. Each successfully referred member will earn you 5 BPIF tokens.  \n\n" +
 		"There will be checks done to ensure the added members are real accounts. If not, your entire token earnings will be forfeited. \n\n" +
-		"Finally, update your information by clicking /Profile. Without this information, we will not be able to distribute your airdrops. Your unique referral link is: http://telegram.me/Akaiito_AirDropbot/?start={}",
+		"Finally, update your information by clicking /Profile. Without this information, we will not be able to distribute your airdrops. Your unique referral link is: http://telegram.me/bitpifbot/?start={}",
 		{
 			parse_mode: 'html'
 		}
