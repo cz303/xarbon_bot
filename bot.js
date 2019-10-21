@@ -5,7 +5,7 @@ const express = require('express');
 
 const port = process.env.PORT || 3000;
 
-var token ='659414060:AAEWNZpJCVULIOoAdEP7oz8ZGoKJFfmW670';
+var token ='1065557544:AAEzzrCLkbLD9ikZDhuJ2_vV80L316frYbw';
 var api = new telegramBot(token, {polling: true});
 var app = express();
 
@@ -33,13 +33,13 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 	}
 
 	
-	db.collection('xarbon_users').find({
+	db.collection('bitpif_users').find({
 		telegramId: fromId
 	}).limit(1).count().then((count) =>{
 		if(count > 0){
 			console.log('user exists');
 		}else{
-			db.collection('xarbon_users').insertOne({
+			db.collection('bitpif_users').insertOne({
 			    telegramId: fromId,
 			    userName: usn,
 			    firstName: fname,
@@ -89,15 +89,15 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 	  })
 	};
 
-	api.sendMessage(fromId, `Hi ${fname}, welcome to the Xarbon Airdrop bot!  \n\n` +
-		`\u{1F4E3} A total of 100 OCO tokens could be yours! \n\n` +
-		`\u{1F537} 8 OCO tokens for joining our Telegram group \n` +
-		`\u{1F537} 8 OCO tokens for liking our Facebook page \n` +
-		`\u{1F537} 8 OCO tokens for following our Twitter \n` +
-		`\u{1F537} 16 OCO tokens for following our LinkedIn page \n` +
-		`\u{1F537} 10 OCO tokens for doing all of the above \n` +
-		`\u{1F537} 50 OCO tokens for referring 10 members into our Telegram group \n\n` +
-		`To start earning OCO tokens, please press /Telegram.`
+	api.sendMessage(fromId, `Hi ${fname}, welcome to the BITPIF Airdrop bot!  \n\n` +
+		`\u{1F4E3} A total of 100 BPIF tokens could be yours! \n\n` +
+		`\u{1F537} 8 BPIF tokens for joining our Telegram group \n` +
+		`\u{1F537} 8 BPIF tokens for liking our Facebook page \n` +
+		`\u{1F537} 8 BPIF tokens for following our Twitter \n` +
+		`\u{1F537} 16 BPIF tokens for following our LinkedIn page \n` +
+		`\u{1F537} 10 BPIF tokens for doing all of the above \n` +
+		`\u{1F537} 50 BPIF tokens for referring 10 members into our Telegram group \n\n` +
+		`To start earning BPIF tokens, please press /Telegram.`
 		, options);
 	});
   //START END
@@ -108,7 +108,7 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 	var fromId = msg.from.id;
 
 	api.sendMessage(fromId,
-		"Join @XarbonOCO / https://t.me/XarbonOCO Telegram group! \n\n" +
+		"Join @bitpif / https://t.me/bitpif Telegram group! \n\n" +
 		"Come back here and type /joined once done.",
 		{
 			parse_mode: 'html'
@@ -129,21 +129,21 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 		);
 	});
 
-  // FACEBOOK
-  api.onText(/\/Facebook/, function(msg, match) {
+  // VK
+  api.onText(/\/VK/, function(msg, match) {
 
 	var fromId = msg.from.id;
 
 	api.sendMessage(fromId,
-		"Like us on Facebook https://www.facebook.com/XarbonOCO/ \n\n" +
-		"Send a screenshot showing you’ve followed our Facebook page.",
+		"Like us on Facebook https://www.vk.com/bitpif/ \n\n" +
+		"Send a screenshot showing you’ve followed our VK page.",
 		{
 			parse_mode: 'html'
 		}
 		);
 	});
 
-  // FB Screenshot
+  // VK Screenshot
 
   // TWITTER
 
@@ -153,7 +153,7 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 	var fromId = msg.from.id;
 
 	api.sendMessage(fromId,
-		"Follow #XarbonOCO on Twitter https://twitter.com/XarbonOCO \n\n" +
+		"Follow #BITPIF on Twitter https://twitter.com/bitpif \n\n" +
 		"Please provide your Twitter username. \n\n" +
 		"Type /twitterusn <i>Twitter Username</i>",
 		{
@@ -163,14 +163,14 @@ MongoClient.connect('mongodb://heroku_9wjl0rfc:7j4bn8al251s74btsula1gv8fl@ds2375
 	});
 
 
-  // LINKEDIN
-  api.onText(/\/LinkedIn/, function(msg, match) {
+  // INSTAGRAM
+  api.onText(/\/Instagram/, function(msg, match) {
 
 	var fromId = msg.from.id;
 
 	api.sendMessage(fromId,
-		"Follow our LinkedIn page https://www.linkedin.com/company/xarbon/ \n\n" +
-		"Send a screenshot showing you’ve followed our LinkedIn page.",
+		"Follow our Instagram page https://www.instagram.com/bitpif/ \n\n" +
+		"Send a screenshot showing you’ve followed our Instagram page.",
 		{
 			parse_mode: 'html'
 		}
@@ -183,7 +183,7 @@ api.onText(/\/Refer/, function(msg, match) {
 	var fromId = msg.from.id;
 
 	api.sendMessage(fromId,
-		"Bonus round! This is optional but worth a shot! Earn up to 50 OCO tokens by adding up to 10 of your friends into @XarcadeOCO / https://t.me/XarbonOCO Telegram group. Each successfully referred member will earn you 5 OCO tokens.  \n\n" +
+		"Bonus round! This is optional but worth a shot! Earn up to 50 BPIF tokens by adding up to 10 of your friends into @bitpif / https://t.me/bitpif Telegram group. Each successfully referred member will earn you 5 BPIF tokens.  \n\n" +
 		"There will be checks done to ensure the added members are real accounts. If not, your entire token earnings will be forfeited. \n\n" +
 		"Finally, update your information by clicking /Profile. Without this information, we will not be able to distribute your airdrops.",
 		{
@@ -197,7 +197,7 @@ api.onText(/\/Refer/, function(msg, match) {
 
 	var fromId = msg.from.id;
 
-	db.collection('xarbon_users').find({
+	db.collection('bitpif_users').find({
 		telegramId: fromId
 	}).toArray().then((docs) => {
 		console.log(docs);
@@ -206,13 +206,13 @@ api.onText(/\/Refer/, function(msg, match) {
 			`<b>Last Name:</b> ${docs[0].lastName}\n` +
 			`<b>Email:</b> ${docs[0].email}\n` +
 			`<b>Twitter Username:</b> ${docs[0].twitterUsn}\n` +
-			`<b>NEM Address:</b> ${docs[0].nemAddress}\n\n` +
+			`<b>BTC Address:</b> ${docs[0].btcAddress}\n\n` +
 			"To update your profile: \n\n" +
 			"Type /upfirstname <i>Your First name</i> \n" +
 			"Type /uplastname <i>Your Last name</i> \n" +
 			"Type /upemail <i>Your Email</i> \n" +
 			"Type /uptwitter <i>Your Twitter Username</i> \n" +
-			"Type /upnemaddress <i>Your NEM Address</i> \n",
+			"Type /upbtcaddress <i>Your BTC Address</i> \n",
 			{
 				parse_mode : 'html'
 			});
@@ -234,11 +234,11 @@ api.onText(/\/Refer/, function(msg, match) {
 	       if (!files.length) {
 	           var path = api.downloadFile(photoId, dir).then(function (path) {
 					console.log(path);
-					db.collection('xarbon_users').findOneAndUpdate({
+					db.collection('bitpif_users').findOneAndUpdate({
 						telegramId: fromId
 					},{
 						$set: {
-							fblike: 'yes'
+							vklike: 'yes'
 						}
 					},{
 						returnOriginal: false
@@ -246,16 +246,16 @@ api.onText(/\/Refer/, function(msg, match) {
 						console.log(result);
 						
 					},(err) => {
-						console.log('unable to update fblike');
+						console.log('unable to update VKlike');
 					});
-					api.sendMessage(fromId,"FB screenshot has been received! Please press /Twitter to proceed."
+					api.sendMessage(fromId,"VK screenshot has been received! Please press /Twitter to proceed."
 						
 						);
 				});
 	       }else{
 	       		var path = api.downloadFile(photoId, dir).then(function (path) {
 					console.log(path);
-					db.collection('xarbon_users').findOneAndUpdate({
+					db.collection('bitpif_users').findOneAndUpdate({
 						telegramId: fromId
 					},{
 						$set: {
@@ -267,9 +267,9 @@ api.onText(/\/Refer/, function(msg, match) {
 						console.log(result);
 						
 					},(err) => {
-						console.log('unable to update lilike');
+						console.log('unable to update Instlike');
 					});
-					api.sendMessage(fromId,"LinkedIn screenshot has been received! Please press /Refer to proceed."
+					api.sendMessage(fromId,"Instagram screenshot has been received! Please press /Refer to proceed."
 						
 						);
 				});
@@ -285,7 +285,7 @@ api.onText(/\/Refer/, function(msg, match) {
   	var twitterusn = match[1];
 	var fromId = msg.from.id;
 
-	db.collection('xarbon_users').findOneAndUpdate({
+	db.collection('bitpif_users').findOneAndUpdate({
 		telegramId: fromId
 	},{
 		$set: {
@@ -295,7 +295,7 @@ api.onText(/\/Refer/, function(msg, match) {
 		returnOriginal: false
 	}).then((result) => {
 		console.log(result);
-		api.sendMessage(fromId,'Your Twitter username has been updated. Please press /LinkedIn to proceed.');
+		api.sendMessage(fromId,'Your Twitter username has been updated. Please press /Instagram to proceed.');
 	},(err) => {
 		console.log('unable to update twitter usn');
 	});
@@ -307,7 +307,7 @@ api.onText(/\/Refer/, function(msg, match) {
 	var fromId = msg.from.id;
 	var fname = match[1];
 
-	db.collection('xarbon_users').findOneAndUpdate({
+	db.collection('bitpif_users').findOneAndUpdate({
 		telegramId: fromId
 	},{
 		$set: {
@@ -329,7 +329,7 @@ api.onText(/\/Refer/, function(msg, match) {
 	var fromId = msg.from.id;
 	var lname = match[1];
 
-	db.collection('xarbon_users').findOneAndUpdate({
+	db.collection('bitpif_users').findOneAndUpdate({
 		telegramId: fromId
 	},{
 		$set: {
@@ -351,7 +351,7 @@ api.onText(/\/Refer/, function(msg, match) {
 	var fromId = msg.from.id;
 	var email = match[1];
 
-	db.collection('xarbon_users').findOneAndUpdate({
+	db.collection('bitpif_users').findOneAndUpdate({
 		telegramId: fromId
 	},{
 		$set: {
@@ -373,7 +373,7 @@ api.onText(/\/Refer/, function(msg, match) {
   	var twitterusn = match[1];
 	var fromId = msg.from.id;
 
-	db.collection('xarbon_users').findOneAndUpdate({
+	db.collection('bitpif_users').findOneAndUpdate({
 		telegramId: fromId
 	},{
 		$set: {
@@ -395,7 +395,7 @@ api.onText(/\/Refer/, function(msg, match) {
   	var nem = match[1];
 	var fromId = msg.from.id;
 
-	db.collection('xarbon_users').findOneAndUpdate({
+	db.collection('bitpif_users').findOneAndUpdate({
 		telegramId: fromId
 	},{
 		$set: {
@@ -405,9 +405,9 @@ api.onText(/\/Refer/, function(msg, match) {
 		returnOriginal: false
 	}).then((result) => {
 		console.log(result);
-		api.sendMessage(fromId,'Your NEM address has been updated. Check /Profile to ensure all details are correct');
+		api.sendMessage(fromId,'Your BTC address has been updated. Check /Profile to ensure all details are correct');
 	},(err) => {
-		console.log('unable to update nem address');
+		console.log('unable to update btc address');
 	});
 
   });
@@ -419,7 +419,7 @@ api.onText(/\/Refer/, function(msg, match) {
 
 	if(fromId === 413363979 || fromId === 443754890){
 		
-		db.collection('xarbon_users').find({
+		db.collection('bitpif_users').find({
 			userName: search
 		}).toArray().then((user) => {
 			api.sendMessage(fromId,"User Found: \n\n" +
@@ -428,9 +428,9 @@ api.onText(/\/Refer/, function(msg, match) {
 				`Last Name: ${user[0].lastName} \n` +
 				`email: ${user[0].email} \n` +
 				`Twitter Username: ${user[0].twitterUsn} \n` +
-				`NEM Address: ${user[0].nemAddress} \n` +
-				`Liked FB?: ${user[0].fblike} \n` +
-				`Liked LinkedIn?: ${user[0].lilike} \n` +
+				`BTC Address: ${user[0].btcAddress} \n` +
+				`Liked VK?: ${user[0].vklike} \n` +
+				`Liked Instagram?: ${user[0].instlike} \n` +
 				`Added Person(s) to Group: ${user[0].added} \n` +
 				`Added persons: ${user[0].addedPerson} \n`
 				);
@@ -449,7 +449,7 @@ api.onText(/\/Refer/, function(msg, match) {
   	var id = new  ObjectID();
 
   	console.log(user.new_chat_member.first_name);
-  	db.collection('xarbon_users').findOneAndUpdate({
+  	db.collection('bitpif_users').findOneAndUpdate({
 		telegramId: fromId
 	},{
 		$inc: {
@@ -464,7 +464,7 @@ api.onText(/\/Refer/, function(msg, match) {
 		console.log('unable to update added persons');
 	});
 
-  	db.collection('xarbon_users').findOneAndUpdate({
+  	db.collection('bitpif_users').findOneAndUpdate({
 		telegramId: fromId
 	},{
 		$push: {
